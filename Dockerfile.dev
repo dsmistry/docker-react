@@ -1,0 +1,14 @@
+FROM node:18-alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
+
+# This is not strictly necessary anymore to copy everything since we are doing volume mapping
+# But it does not hurt and can be useful template for production docker file so leaving it here
+COPY . .
+
+CMD ["npm", "run", "start"]
