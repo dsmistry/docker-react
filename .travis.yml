@@ -4,7 +4,7 @@ language: generic
 services:
   - docker
 
-  before_install:
+before_install:
     - docker build -t dsmistry2002/docker-react -f Dockerfile.dev .
 
 script:
